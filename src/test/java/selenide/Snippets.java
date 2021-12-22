@@ -30,18 +30,18 @@ public class Snippets {
     Selenide.confirm(); // OK in alert dialogs
     Selenide.dismiss(); // Cancel in alert dialogs
 
-    Selenide.closeWindow(); // close active tab
+    Selenide.closeWindow(); // close active tab // таб(вкладка) и отдельное окно для селенида идентичны
     Selenide.closeWebDriver(); // close browser completely
 
-    Selenide.switchTo().frame("new");
-    Selenide.switchTo().defaultContent();
+    Selenide.switchTo().frame("new"); // iframe это как frame, только без рамочки, selenium не может искать внутри iframe, туда сначала нужно перейти
+    Selenide.switchTo().defaultContent(); // переход из iframe обратно на основную страничку
 
     Selenide.switchTo().window("The Internet");
   }
 
   void selectors_examples() {
     $("div").click();
-    element("div").click();
+    element("div").click(); // element эдентично $ (котлин понимает только element ибо $ у него занят)
 
     $("div", 2).click(); // the third div
 
