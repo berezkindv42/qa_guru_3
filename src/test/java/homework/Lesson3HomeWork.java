@@ -1,13 +1,7 @@
 package homework;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.conditions.Text;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-
-import javax.swing.*;
 
 import java.time.Duration;
 
@@ -98,6 +92,5 @@ public class Lesson3HomeWork {
         $("#column-b").shouldHave(text("A"));
 
     }
-
 
 }
