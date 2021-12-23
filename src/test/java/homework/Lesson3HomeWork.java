@@ -67,11 +67,11 @@ public class Lesson3HomeWork {
         $("#content").shouldHave(text("Drag and Drop"));
 
         // Вариант $(element1).dragAndDropTo($(element2)) работает.
-//        $("#column-a").shouldHave(text("A"));
-//        $("#column-b").shouldHave(text("B"));
-//        $("#column-a").dragAndDropTo($("#column-b"));
-//        $("#column-a").shouldHave(text("B"));
-//        $("#column-b").shouldHave(text("A"));
+        $("#column-a").shouldHave(text("A"));
+        $("#column-b").shouldHave(text("B"));
+        $("#column-a").dragAndDropTo($("#column-b"));
+        $("#column-a").shouldHave(text("B"));
+        $("#column-b").shouldHave(text("A"));
 
 
 
@@ -88,8 +88,8 @@ public class Lesson3HomeWork {
 //        SelenideElement element_b = $$("#columns .column").get(1);
 //        actions().moveToElement(element_a).clickAndHold().moveToElement(element_b).release().perform(); // не работает
 
-        $("#column-a").shouldHave(text("B"));
-        $("#column-b").shouldHave(text("A"));
+//        $("#column-a").shouldHave(text("B"));
+//        $("#column-b").shouldHave(text("A"));
 
     }
 
