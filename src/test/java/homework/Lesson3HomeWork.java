@@ -1,14 +1,21 @@
 package homework;
 
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.conditions.Text;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import javax.swing.*;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.*;
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+
 
 public class Lesson3HomeWork {
 
@@ -50,7 +57,6 @@ public class Lesson3HomeWork {
         $("[data-test-selector=nav-search-input]").setValue("selenide").pressEnter();
         $$(".repo-list").first().$(".v-align-middle").click();
         $("#repository-container-header").$(byText("Wiki")).click();
-//        open("https://github.com/selenide/selenide/wiki");
         $("#wiki-pages-box").$(byText("Show 2 more pages…")).scrollTo().click();
         $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
         $("#wiki-pages-box").$(byText("SoftAssertions")).click();
@@ -73,16 +79,24 @@ public class Lesson3HomeWork {
 //        $("#column-a").shouldHave(text("B"));
 //        $("#column-b").shouldHave(text("A"));
 
-        /* javascript:document.onmousemove = function(e){var x = e.pageX;var y = e.pageY;e.target.title = "X is "+x+" and Y is "+y;};
-        скрипт показывающий координаты мыши в devtools
-         */
 
-        actions().moveToElement($("#column-a")).clickAndHold().moveToElement($("#column-b")).release().perform();
+
+//        actions().moveToElement($$("#columns .column").get(0)).clickAndHold().moveToElement($$(".column").get(1))
+//                .release().perform(); // не работает
+//        actions().moveToElement($("#column-a")).clickAndHold().pause(Duration.ofSeconds(1)).moveToElement($("#column-b"))
+//                .release().perform(); // не работает
+//        actions().moveToElement($("#column-a")).clickAndHold().moveToElement($("#column-b")).release().perform(); // не работает
+//        actions().moveToElement($(byText("A"))).clickAndHold().moveToElement($(byText("B"))).release().perform(); // не работает
+//        actions().moveToElement($(byText("A"))).clickAndHold().moveToElement($("#column-b")).release().perform(); // не работает
+//        actions().moveToElement($("#column-a")).clickAndHold().moveToElement($(byText("B"))).release().perform(); // не работает
+
+//        SelenideElement element_a = $$("#columns .column").get(0);
+//        SelenideElement element_b = $$("#columns .column").get(1);
+//        actions().moveToElement(element_a).clickAndHold().moveToElement(element_b).release().perform(); // не работает
+
         $("#column-a").shouldHave(text("B"));
         $("#column-b").shouldHave(text("A"));
 
-
-//        sleep(5000);
     }
 
 
