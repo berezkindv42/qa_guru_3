@@ -2,6 +2,9 @@ package homework;
 
 import com.codeborne.selenide.conditions.Text;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.interactions.Actions;
+
+import javax.swing.*;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
@@ -28,7 +31,8 @@ public class Lesson3HomeWork {
 //        1.
         /* Разница между $("h1 div"); и $("h1").$("div"); есть. В первом случае мы ищем div у которого родитель h1
         и получим первый на странице h1 внутри которого есть div,
-        а во втором случае мы сначала ищем h1 и получаем первый h1 на странице, а затем внутри него пытаемся найти div, но его там может и не быть.
+        а во втором случае мы сначала ищем h1 и получаем первый h1 на странице, а затем внутри него пытаемся найти div,
+        но его там может и не быть.
          */
     @Test
     void h1DivVsH1Div() {
@@ -57,11 +61,28 @@ public class Lesson3HomeWork {
 
 //        3.
     @Test
-    void fragAndDropTest() {
+    void dragAndDropTest() {
 
         open("https://the-internet.herokuapp.com/drag_and_drop");
+        $("#content").shouldHave(text("Drag and Drop"));
+
+        // Вариант $(element1).dragAndDropTo($(element2)) работает.
+//        $("#column-a").shouldHave(text("A"));
+//        $("#column-b").shouldHave(text("B"));
+//        $("#column-a").dragAndDropTo($("#column-b"));
+//        $("#column-a").shouldHave(text("B"));
+//        $("#column-b").shouldHave(text("A"));
+
+        /* javascript:document.onmousemove = function(e){var x = e.pageX;var y = e.pageY;e.target.title = "X is "+x+" and Y is "+y;};
+        скрипт показывающий координаты мыши в devtools
+         */
+
+        actions().moveToElement($("#column-a")).clickAndHold().moveToElement($("#column-b")).release().perform();
+        $("#column-a").shouldHave(text("B"));
+        $("#column-b").shouldHave(text("A"));
 
 
+//        sleep(5000);
     }
 
 

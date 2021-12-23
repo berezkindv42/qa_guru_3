@@ -2,11 +2,10 @@ package homework;
 
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static java.lang.Thread.sleep;
 
-public class h1divVSh1div {
+public class H1DivVsH1Div {
 
     @Test
     void h1VSh1() throws InterruptedException {
